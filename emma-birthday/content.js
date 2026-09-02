@@ -8,19 +8,31 @@
 /* ------------------------------------------------------------------ *
  * A HELY - ahol hivatalosan osszejottetek
  * ------------------------------------------------------------------ *
- * name:   ez latszik a lapon
- * link:   a Google Maps link (ez MINDENHOL mukodik, artifactben is)
- * embed:  a beagyazott 360-as korbenezes.  Honnan szedd ki:
- *           Google Maps -> a hely -> Street View / a fenykep
- *           -> "Megosztas" -> "Terkep beagyazasa" -> HTML masolasa
- *           -> a <iframe src="..."> ertekét (a https://www.google.com/maps/embed?pb=...
- *              kezdetu hosszu URL-t) ird be ide idezojelek koze.
- *         Ha ures marad, vagy a bongeszo blokkolja (Claude artifactben ez a
- *         helyzet), akkor a rajzolt alkonyati jelenet latszik helyette.
+ * name:    ez latszik a lapon
+ * link:    a Google Maps link (ez MINDENHOL mukodik, artifactben is)
+ *
+ * A 360-as korbenezeshez KETTO kozul eleg az egyik:
+ *
+ * coords:  a hely koordinatai, pl. "46.5401, 24.5580".  Ez a konnyebb ut:
+ *          Google Maps -> jobb klikk a helyre -> a legfelso sor a koordinata,
+ *          rakattintva vagolapra kerul.  Ebbol maga a lap epiti a Street View
+ *          beagyazast, nem kell hozza API kulcs.
+ * heading: melyik iranyba nezzen indulaskor, 0-359 fok (0 = eszak). Elhagyhato.
+ *
+ * embed:   VAGY a teljes beagyazo URL, ha az pontosabb kepet ad:
+ *          Google Maps -> a hely Street View kepe -> "Megosztas"
+ *          -> "Terkep beagyazasa" -> HTML masolasa -> a <iframe src="...">
+ *          erteke (a https://www.google.com/maps/embed?pb=... kezdetu URL).
+ *          Ha ez ki van tolve, a coords-ot felulirja.
+ *
+ * Ha egyik sincs megadva - vagy a bongeszo blokkolja a beagyazast, ami Claude
+ * artifactben mindig igy van -, akkor a rajzolt alkonyati jelenet latszik.
  */
 window.PLACE = {
     name: "Erdély",
     link: "https://maps.app.goo.gl/QEsHS4qS6WmShFi5A",
+    coords: "",
+    heading: 0,
     embed: ""
 };
 

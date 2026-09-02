@@ -524,15 +524,27 @@
     /* ================================================================ */
     /* A 360-as korbenezes (ha van hozza URL es a bongeszo engedi)        */
     /* ================================================================ */
+    /* A beagyazas URL-je: vagy amit megadtak, vagy koordinatabol epitve.
+     * A klasszikus "output=svembed" forma API kulcs nelkul is mukodik. */
+    function embedUrl() {
+        if (PLACE.embed) return PLACE.embed;
+        var c = (PLACE.coords || "").replace(/\s+/g, "");
+        if (!/^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(c)) return "";
+        var head = Number(PLACE.heading) || 0;
+        return "https://maps.google.com/maps?q=&layer=c&cbll=" + encodeURIComponent(c) +
+            "&cbp=11," + head + ",0,0,0&output=svembed";
+    }
+
     function tryEmbed() {
-        if (!PLACE.embed) return;
+        var url = embedUrl();
+        if (!url) return;
         var f = document.createElement("iframe");
         f.id = "embed";
         f.title = PLACE.name || "a hely";
         f.loading = "eager";
         f.referrerPolicy = "no-referrer-when-downgrade";
         f.allow = "fullscreen";
-        f.src = PLACE.embed;
+        f.src = url;
 
         var ok = false;
         f.addEventListener("load", function () { ok = true; });
@@ -564,7 +576,7 @@
     scene();
     tryEmbed();
 
-    el.look.textContent = PLACE.embed ? "Betöltés…" : "Húzd (vagy ◀ ▶), hogy körülnézz.";
+    el.look.textContent = embedUrl() ? "Betöltés…" : "Húzd (vagy ◀ ▶), hogy körülnézz.";
 
     el.cardClose.addEventListener("click", closeCard);
     el.cardWrap.addEventListener("click", function (e) {

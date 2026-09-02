@@ -5,6 +5,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 # Az Emma Sztori — végigjátszható változat
 
+> **Átadás / kontextus:** a teljes sztori, a projekt állása és a következő
+> lépések itt: [`emma-birthday/HANDOFF.md`](../emma-birthday/HANDOFF.md).
+> Az aktív munka a szülinapi ajándék (`emma-birthday/`), nem ez.
+
 Egy böngészős játék, ami végigmegy az egész sztorin: április (a felismerés) →
 szeptember (most). Hat fejezet, mindegyikben sétálás, párbeszéd, döntések és egy
 minijáték.
