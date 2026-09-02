@@ -48,3 +48,4 @@ clean_test/
 
 # emma-story: generalt egyfajlos build (Artifact publikalashoz)
 emma-story/standalone.html
+emma-birthday/artifact.html

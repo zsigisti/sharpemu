@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2026 SharpEmu Emulator Project
+SPDX-License-Identifier: GPL-2.0-or-later
+-->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emma szülinapja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main id="stage">
+    <canvas id="place" aria-hidden="true"></canvas>
+    <div id="veil"></div>
+    <p id="look"></p>
+
+    <div id="ui">
+        <header>
+            <p class="eyebrow" id="sub"></p>
+            <h1 id="greeting"></h1>
+            <p id="place-name"></p>
+        </header>
+
+        <div id="middle">
+            <div id="cake" tabindex="-1">
+                <div class="candles" id="candles"></div>
+                <div class="tier top"></div>
+                <div class="tier bottom"></div>
+                <div class="plate"></div>
+            </div>
+            <p id="hint" role="status"></p>
+        </div>
+
+        <nav id="timeline" aria-label="Közös emlékek, áprilistól szeptemberig">
+            <span class="rail" id="rail"></span>
+        </nav>
+    </div>
+</main>
+
+<div id="card-wrap" role="dialog" aria-modal="true" aria-labelledby="card-title">
+    <article id="card">
+        <p class="date" id="card-date"></p>
+        <h2 id="card-title"></h2>
+        <p id="card-body"></p>
+        <blockquote id="card-quote" hidden></blockquote>
+        <button type="button" id="card-close"></button>
+    </article>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<div id="finale">
+    <div class="inner">
+        <h2 id="finale-title"></h2>
+        <div id="finale-body"></div>
+        <p class="sig" id="finale-sig"></p>
+        <button type="button" class="again" id="again"></button>
+    </div>
+</div>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
