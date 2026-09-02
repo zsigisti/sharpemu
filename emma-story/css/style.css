@@ -12,11 +12,22 @@
 
 * { box-sizing: border-box; }
 
+/* A jatek egy szandekosan egyetlen, sotet vilagot visz - nem invertalunk temara.
+ * Ezert minden felszin sajat, explicit szint fest: az Artifact keret a sajat
+ * temajaban festi az alapot, es egy atlatszo body atvenne azt. */
+html {
+    background-color: #17121d;
+}
+
+body {
+    background-color: #17121d;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #17121d;
+    min-height: 100dvh;
     overflow: hidden;
     font-family: "Nunito", system-ui, sans-serif;
     -webkit-tap-highlight-color: transparent;
@@ -27,7 +38,8 @@ html, body {
     inset: 0;
     display: grid;
     place-items: center;
-    background:
+    background-color: #17121d;
+    background-image:
         radial-gradient(120% 90% at 50% 0%, #3a2740 0%, #17121d 70%);
 }
 

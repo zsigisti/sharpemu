@@ -93,7 +93,7 @@
 
                 G.text(ctx, "🤍 " + G.state.hearts + "   ⭐ " + G.state.memories + "/18",
                     W / 2, 492, { font: "bold 18px Nunito", color: "#ffd9e4", align: "center" });
-                G.text(ctx, "SPACE indít  •  ↑↓ / 1-6 fejezet  •  T rajz-lista  •  M hang  •  R újrakezdés",
+                G.text(ctx, "SPACE vagy kattintás indít  •  ↑↓ / 1-6 fejezet  •  T rajz-lista  •  M hang  •  R újrakezdés",
                     W / 2, 518, { font: "13px Nunito", color: "rgba(255,255,255,.42)", align: "center" });
 
                 var miss = Art.missing().length;

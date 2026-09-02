@@ -247,20 +247,31 @@
         PEOPLE: PEOPLE,
         palette: P,
 
-        /* Megprobal minden slotot betolteni; a hianyzo png-k csendben kimaradnak. */
+        /* Megprobal minden slotot betolteni; a hianyzo png-k csendben kimaradnak.
+         *
+         * Ket forras van, ebben a sorrendben:
+         *   1. global.EMMA_ART_DATA[nev] - beagyazott data URI (az egyfajlos
+         *      valtozat ezt hasznalja, mert ott nincs assets/ mappa)
+         *   2. assets/art/<nev>.png - kiveve ha EMMA_ART_INLINE_ONLY be van allitva
+         */
         preload: function (done) {
-            var pending = SLOTS.length;
+            var inline = global.EMMA_ART_DATA || {};
+            var srcs = SLOTS.map(function (slot) {
+                return { name: slot.name, src: inline[slot.name] || (global.EMMA_ART_INLINE_ONLY ? null : PATH + slot.name + ".png") };
+            }).filter(function (e) { return !!e.src; });
+
+            var pending = srcs.length;
             if (!pending) return done();
-            SLOTS.forEach(function (slot) {
+            srcs.forEach(function (e) {
                 var img = new Image();
                 img.onload = function () {
-                    images[slot.name] = img;
+                    images[e.name] = img;
                     if (--pending === 0) done();
                 };
                 img.onerror = function () {
                     if (--pending === 0) done();
                 };
-                img.src = PATH + slot.name + ".png";
+                img.src = e.src;
             });
         },
 

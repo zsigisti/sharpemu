@@ -45,3 +45,6 @@ ehthumbs.db
 .vscode/
 clean_test/
 .debug/
+
+# emma-story: generalt egyfajlos build (Artifact publikalashoz)
+emma-story/standalone.html
