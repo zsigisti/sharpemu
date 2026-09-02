@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2026 SharpEmu Emulator Project
+SPDX-License-Identifier: GPL-2.0-or-later
+-->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Az Emma Sztori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="shell">
+    <canvas id="game" width="960" height="540"></canvas>
+
+    <div id="touch" aria-hidden="true">
+        <div class="pad">
+            <button class="tbtn" data-key="ArrowLeft">&#9664;</button>
+            <button class="tbtn" data-key="ArrowRight">&#9654;</button>
+        </div>
+        <div class="pad right">
+            <button class="tbtn wide" data-key="Space">&#9651;</button>
+            <button class="tbtn wide" data-key="KeyE">OK</button>
+        </div>
+    </div>
+
+    <div id="rotate">Fordítsd el a telefont fekvőbe &#128260;</div>
+</div>
+
+<script src="js/art.js"></script>
+<script src="js/story.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/minigames.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

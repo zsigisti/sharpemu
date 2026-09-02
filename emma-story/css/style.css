@@ -1,0 +1,101 @@
+/* Copyright (C) 2026 SharpEmu Emulator Project
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+:root {
+    --ink: #2a1f33;
+    --paper: #fdf4f7;
+    --rose: #e8628c;
+    --rose-deep: #b83c66;
+    --sky: #8fc7e8;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #17121d;
+    overflow: hidden;
+    font-family: "Nunito", system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#shell {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(120% 90% at 50% 0%, #3a2740 0%, #17121d 70%);
+}
+
+#game {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: 16 / 9;
+    image-rendering: pixelated;
+    background: #0f0b13;
+    box-shadow: 0 0 0 2px rgba(232, 98, 140, .35), 0 24px 80px rgba(0, 0, 0, .7);
+    touch-action: none;
+    cursor: pointer;
+}
+
+/* --- touch controls: only on pointer-coarse devices --- */
+#touch {
+    position: fixed;
+    inset: auto 0 0 0;
+    display: none;
+    justify-content: space-between;
+    padding: 0 14px 18px;
+    pointer-events: none;
+}
+
+#touch .pad {
+    display: flex;
+    gap: 10px;
+    pointer-events: auto;
+}
+
+.tbtn {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .35);
+    background: rgba(20, 14, 26, .55);
+    color: #fff;
+    font-size: 20px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
+    backdrop-filter: blur(6px);
+    user-select: none;
+}
+
+.tbtn.wide { width: 82px; border-color: rgba(232, 98, 140, .6); }
+.tbtn:active { background: rgba(232, 98, 140, .55); transform: scale(.94); }
+
+@media (pointer: coarse) {
+    #touch { display: flex; }
+}
+
+#rotate {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    text-align: center;
+    padding: 40px;
+    background: #17121d;
+    color: var(--paper);
+    font-size: 18px;
+    font-weight: 700;
+    z-index: 20;
+}
+
+@media (pointer: coarse) and (orientation: portrait) {
+    #rotate { display: grid; }
+}
